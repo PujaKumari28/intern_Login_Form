@@ -11,7 +11,7 @@ function Main() {
 
   const removeUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/users/${userId}`);
+      await axios.delete(`https://intern-login-form.onrender.com/api/users/${userId}`);
     
       setUsers(users.filter(user => user._id !== userId));
     } catch (error) {
@@ -26,7 +26,7 @@ function Main() {
   useEffect(() => {
   
     const fetchUsers = async () => {
-      const result = await axios('http://localhost:8000/api/users');
+      const result = await axios('https://intern-login-form.onrender.com/api/users');
       setUsers(result.data);
     };
 
@@ -35,7 +35,7 @@ function Main() {
 
   return (
     <div className="main-container">
-      <h1>User List</h1>
+      <h1>List of Logged In Users From Database</h1>
       <ul className="user-list">
         {users.map((user) => (
           <li key={user._id} className="user-item">
@@ -44,7 +44,7 @@ function Main() {
           </li>
         ))}
       </ul>
-      <button onClick={redirectToLogin} className="back-button">Add User</button>
+      <button onClick={redirectToLogin} className="back-button">Login with Different user</button>
     </div>
   );
 }

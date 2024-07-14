@@ -14,7 +14,7 @@ function Login() {
 
     try {
       
-      const response = await axios.post(`http://localhost:8000/api/users`, { username, password });
+      const response = await axios.post(`https://intern-login-form.onrender.com/api/users`, { username, password });
 
       if (response.status === 200) {
         console.log('User added successfully:', response.data);
@@ -37,9 +37,9 @@ function Login() {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <label>
-          Username:
+          Email:
           <input
-            type="text"
+            type="email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="login-input"
